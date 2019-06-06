@@ -9,6 +9,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 
+
 # Create your models here.
 class Category(models.Model):
     """
@@ -23,45 +24,61 @@ class Category(models.Model):
     Django 内置的全部类型可查看文档：
     https://docs.djangoproject.com/en/1.10/ref/models/fields/#field-types
     """
+
+    def __str__(self):
+        return 'name:%s' % self.name
+
     # 分类名
-    name=models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
 
 
 class Tag(models.Model):
     """
     文章标签，一篇文章对应多个标签
     """
+
+    def __str__(self):
+        """
+        对象描述
+        :return:字符串
+        """
+        return 'name:%s' % self.name
+
     # 标签名
-    name=models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
 
 
 class Post(models.Model):
     """
     文章表
     """
+
+    def __str__(self):
+        return self.title
+
     # 文章标题
-    title=models.CharField(max_length=70)
+    title = models.CharField(max_length=70)
 
     # 文章正文 使用TextField 存储大段文本
-    body=models.TextField()
+    body = models.TextField()
 
     # 文章创建时间
-    create_time=models.DateTimeField()
+    create_time = models.DateTimeField()
     # 文章最后一次修改时间
-    modified_time=models.DateTimeField()
+    modified_time = models.DateTimeField()
 
     # 文章摘要，可以为空
-    excerpt=models.CharField(max_length=200,blank=True)
+    excerpt = models.CharField(max_length=200, blank=True)
 
     # 文章分类，把文章对应的数据库表和分类对应的数据库表关联起来
     # 一个分类下有多个文章，一个文章对应一个分类。一对多的关系，用外键
-    category=models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     # 文章标签，把文章对应的数据库表和标签对应的数据库表关联起来
     # 一篇文章对应多个标签，一个标签对应多个文章。多对多的关系
     # 文章可以没有标签，可以为空
-    tags=models.ManyToManyField(Tag,blank=True)
+    tags = models.ManyToManyField(Tag, blank=True)
 
     # 文章作者 User 是从 django.contrib.auth.models 导入的。
     # django.contrib.auth.models 是django内置的应用，专门用于处理网站用户的注册、登录等流程
-    author=models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
