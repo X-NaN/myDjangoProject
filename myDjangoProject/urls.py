@@ -19,6 +19,9 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     # 将blog应用下的urls.py文件包含进来
-    path(r'blog/',include('blog.urls'))
+    # http://127.0.0.1:8000/blog/#
+    # path(r'blog/',include('blog.urls')),
+    # http://127.0.0.1:8000
+    path(r'', include('blog.urls'))
     # re_path(r'^message_form/$', getform),  # 正则表达的这么写
 ]

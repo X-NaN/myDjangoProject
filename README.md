@@ -47,3 +47,13 @@ django命令，迁移数据库：
        b. python manage.py migrate
      （4）查看django翻译的数据库表创建语句
         python manage.py sqlmigrate blog 0001
+
+6.django 博客首页视图(初级版)
+    (1)在blog应用目录下创建urls.py文件,并绑定url和视图函数
+    (2)在blog的views.py文件中编写视图函数index
+    (3)配置项目url：将blog应用的urls.py包含到项目的urls.py(即 settings.py 文件所在的目录下),url(r'', include('blog.urls'))
+    (4)django模板系统：
+        a. 在templates下创建blog文件夹
+        b. 在blog 目录下建立一个名为 index.html
+        c. 在 settings.py 文件里设置一下模板文件templates所在的路径
+
