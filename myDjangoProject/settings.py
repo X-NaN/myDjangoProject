@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)工程根目录:最外层myDjangoProject\
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
@@ -53,7 +53,7 @@ ROOT_URLCONF = 'myDjangoProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR+"/templates",],# 模板位置
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],# 设置模板位置
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

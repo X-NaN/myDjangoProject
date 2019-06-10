@@ -9,8 +9,11 @@
 
 from django.conf.urls import url
 # 从当前目录下导入 views 模块
+from django.urls import path
+
 from  . import views
 
 urlpatterns=[
-    url(r'^$',views.index,name='index')
+    # url(r'^$',views.index,name='index')
+    path(r'',views.index,name='index')
 ]
