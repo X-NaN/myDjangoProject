@@ -72,3 +72,18 @@ django命令，迁移数据库步骤：
         b. 在blog 目录下建立一个名为 index.html
         c. 在 settings.py 文件里设置一下模板文件templates所在的路径
 
+7. django 博客首页视图(高级版)
+
+
+8. django admin 后台
+    1. 创建超级管理员admin
+    user:admin
+    pwd:123456
+    python manage.py createsuperuser
+    
+    2. 在blog应用下的admin.py中注册模型，然后刷新
+    http://127.0.0.1:8000/admin
+    
+    3. 定制后台显示
+    http://127.0.0.1:8000/admin/blog/post/
+
