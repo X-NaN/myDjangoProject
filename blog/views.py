@@ -15,3 +15,4 @@ def index(request):
     # 逆序,- 号表示逆序
     post_list=Post.objects.all().order_by('-create_time')
     return render(request,'blog/index.html',context={'post_list':post_list})
+

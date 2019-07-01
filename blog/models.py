@@ -11,6 +11,9 @@ from django.db import models
 
 
 # Create your models here.
+from django.urls import reverse
+
+
 class Category(models.Model):
     """
     文章分类，一篇文章对应一个分类
@@ -82,3 +85,8 @@ class Post(models.Model):
     # 文章作者 User 是从 django.contrib.auth.models 导入的。
     # django.contrib.auth.models 是django内置的应用，专门用于处理网站用户的注册、登录等流程
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def get_absolute_url(self):
+        return reverse('blog:detail',kwargs={'pk':self.pk})
+
+
