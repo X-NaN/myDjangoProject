@@ -79,11 +79,18 @@ django命令，迁移数据库步骤：
     1. 创建超级管理员admin
     user:admin
     pwd:123456
-    python manage.py createsuperuser
+    执行命令：python manage.py createsuperuser
     
-    2. 在blog应用下的admin.py中注册模型，然后刷新
-    http://127.0.0.1:8000/admin
+    2. 在blog应用下的admin.py中注册模型，然后刷新url
+     http://127.0.0.1:8000/admin
+    > admin.site.register(Post)
     
+    > admin.site.register(Category)
+    
+    > admin.site.register(Tag)
+   
     3. 定制后台显示
-    http://127.0.0.1:8000/admin/blog/post/
+     http://127.0.0.1:8000/admin/blog/post/
+    > admin.site.register(Post,PostAdmin)
+   
 
