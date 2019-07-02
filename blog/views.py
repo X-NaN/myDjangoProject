@@ -1,4 +1,6 @@
+import markdown
 from django.shortcuts import render, get_object_or_404
+
 from .models import Post
 
 # Create your views here.
@@ -24,4 +26,10 @@ def detail(request,pk):
     :return:
     """
     post=get_object_or_404(Post,pk=pk)
+    # 把 Markdown 文本转为 HTML 文本再传递给模板
+    post.body=markdown.markdown(post.body,extensions=[
+                                     'extra',
+                                     'codehilite',
+                                     'toc',
+                                  ])
     return render(request,'blog/detail.html',context={'post':post})

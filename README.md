@@ -98,5 +98,11 @@ django命令，迁移数据库步骤：
     2. index.html和detail.html继承模板页
     3. 占位标签 {% block main %},index.html通过占位标签main，填充网页不同的部分
     4. Post中生成文章url
+    
+
+10. 代码高亮
+    1. 安装markdown和Pygments
+    2. 修改视图函数detail,将数据库取出的body，从 Markdown 文本转为 HTML 文本再传递给模板
+    3. detail.html中的post.body增加过滤器，否则django把html文本原样输出
    
 
