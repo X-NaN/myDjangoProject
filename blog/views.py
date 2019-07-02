@@ -20,7 +20,7 @@ def detail(request,pk):
     """
     文章详情视图函数
     :param request:
-    :param pk: 文章id
+    :param pk: 文章id，是从url提取出来的，提取规则在url模式中（正则表达式）
     :return:
     """
     post=get_object_or_404(Post,pk=pk)

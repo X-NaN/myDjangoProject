@@ -87,6 +87,10 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def get_absolute_url(self):
+        """
+        生成文章的url，pk是文章的主键Id
+        :return:
+        """
         # blog应用下name=detail的视图函数
         return reverse('blog:detail',kwargs={'pk':self.pk})
 
