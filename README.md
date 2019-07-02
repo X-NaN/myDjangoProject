@@ -92,5 +92,11 @@ django命令，迁移数据库步骤：
     3. 定制后台显示
      http://127.0.0.1:8000/admin/blog/post/
     > admin.site.register(Post,PostAdmin)
+
+9. 文章详情页
+    1. 模板页base.html
+    2. index.html和detail.html继承模板页
+    3. 占位标签 {% block main %},index.html通过占位标签main，填充网页不同的部分
+    4. Post中生成文章url
    
 
