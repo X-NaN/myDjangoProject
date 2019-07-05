@@ -97,7 +97,8 @@
                     <ul>
                         {% for date in date_list %}
                         <li>
-                            <a href="#">{{ date.year }}年{{ date.month }}</a>
+                        <!--url 解析视图函数 blog:archives 对应的 URL 模式-->
+                            <a href="{% url 'blog:archives' date.year date.month %}">{{ date.year }}年{{ date.month }}</a>
                         </li>
                         {% empty %}
                         暂无归档
@@ -112,7 +113,7 @@
                     <ul>
                         {% for category in category_list %}
                             <li>
-                            <a href="#">{{ category.name }}<span class="post-count">(13)</span> </a>
+                            <a href="{% url 'blog:category' category.pk %}">{{ category.name }}<span class="post-count">{{ category.post_set.count }}</span> </a>
                             </li>
                         {% empty %}
                             暂无分类

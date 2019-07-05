@@ -11,12 +11,14 @@ from django.conf.urls import url
 # 从当前目录下导入 views 模块
 from django.urls import path
 
-from  . import views
+from . import views
 
-app_name='blog' # 视图函数命名空间,标识这个 URL 模块是属于 blog 应用的
-urlpatterns=[
+app_name = 'blog'  # 视图函数命名空间,标识这个 URL 模块是属于 blog 应用的
+urlpatterns = [
     # url(r'^$',views.index,name='index')
-    path(r'',views.index,name='index'),
+    path(r'', views.index, name='index'),
     # 命名捕获组,并作为关键字参数传给其对应的视图函数 detail
-    path(r'^post/(?P<pk>[0-9]+)/$',views.detail,name='detail')
+    path(r'^post/(?P<pk>[0-9]+)/$', views.detail, name='detail'),
+    path(r'^archives/(?P<year>[0-9]{4})/(?P<month>[0-9]{1,2})/$', views.archives, name='archives'),
+    path(r'^category/(?<pk>[0-9]+)/$', views.category, name='category'),
 ]

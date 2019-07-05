@@ -27,19 +27,21 @@ class Category(models.Model):
     Django 内置的全部类型可查看文档：
     https://docs.djangoproject.com/en/1.10/ref/models/fields/#field-types
     """
-
+    verbose_name='分类'
+    verbose_name_plural='分类管理'
     def __str__(self):
         return 'name:%s' % self.name
 
     # 分类名
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100,verbose_name='分类')
 
 
 class Tag(models.Model):
     """
     文章标签，一篇文章对应多个标签
     """
-
+    verbose_name = '标签'
+    verbose_name_plural = '标签管理'
     def __str__(self):
         """
         对象描述
@@ -48,43 +50,44 @@ class Tag(models.Model):
         return 'name:%s' % self.name
 
     # 标签名
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100,verbose_name='标签名')
 
 
 class Post(models.Model):
     """
     文章表
     """
-
+    verbose_name = '文章'
+    verbose_name_plural = '文章管理'
     def __str__(self):
         return self.title
 
     # 文章标题
-    title = models.CharField(max_length=70)
+    title = models.CharField(max_length=70,verbose_name='文章标题')
 
     # 文章正文 使用TextField 存储大段文本
-    body = models.TextField()
+    body = models.TextField(verbose_name='正文')
 
     # 文章创建时间
-    create_time = models.DateTimeField()
+    create_time = models.DateTimeField('创建时间')
     # 文章最后一次修改时间
-    modified_time = models.DateTimeField()
+    modified_time = models.DateTimeField('修改时间')
 
     # 文章摘要，可以为空
-    excerpt = models.CharField(max_length=200, blank=True)
+    excerpt = models.CharField(max_length=200, blank=True,verbose_name='文章摘要')
 
     # 文章分类，把文章对应的数据库表和分类对应的数据库表关联起来
     # 一个分类下有多个文章，一个文章对应一个分类。一对多的关系，用外键
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE,verbose_name='分类')
 
     # 文章标签，把文章对应的数据库表和标签对应的数据库表关联起来
     # 一篇文章对应多个标签，一个标签对应多个文章。多对多的关系
     # 文章可以没有标签，可以为空
-    tags = models.ManyToManyField(Tag, blank=True)
+    tags = models.ManyToManyField(Tag, blank=True,verbose_name='文章标签')
 
     # 文章作者 User 是从 django.contrib.auth.models 导入的。
     # django.contrib.auth.models 是django内置的应用，专门用于处理网站用户的注册、登录等流程
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE,verbose_name='作者')
 
     def get_absolute_url(self):
         """
@@ -92,6 +95,7 @@ class Post(models.Model):
         :return:
         """
         # blog应用下name=detail的视图函数
+        # url反向解析 找到urls.py中name='detail'的路径
         return reverse('blog:detail',kwargs={'pk':self.pk})
 
 
