@@ -105,4 +105,12 @@ django命令，迁移数据库步骤：
     2. 修改视图函数detail,将数据库取出的body，从 Markdown 文本转为 HTML 文本再传递给模板
     3. detail.html中的post.body增加过滤器，否则django把html文本原样输出
    
-
+11. 模板标签
+页面最新文章列表、归档、文章分类显示
+    1.  blog 应用下创建一个 templatetags 文件夹
+    2. 在 templatetags\ 目录下创建一个 blog_tags.py 文件
+    3. 在blog_tags.py中编写获取最新文章、归档和文章分类的模板函数
+        register = template.Library()
+        @register表注模板函数
+    4. 在setting文件中配置模板
+    5. 在页面中，load blog_tags
