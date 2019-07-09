@@ -22,6 +22,7 @@ urlpatterns = [
     # http://127.0.0.1:8000/blog/#
     # path(r'blog/',include('blog.urls')),
     # http://127.0.0.1:8000
-    path(r'', include('blog.urls'))
+    path(r'', include('blog.urls')),
+    path(r'',include('comments.urls'))
     # re_path(r'^message_form/$', getform),  # 正则表达的这么写
 ]

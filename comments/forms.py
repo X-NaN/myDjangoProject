@@ -6,12 +6,12 @@
 # @ProjectName: myDjangoProject
 # @Software : PyCharm
 # @Description :
-from django.forms import forms
+from django.forms import ModelForm
 
 from comments.models import Comment
 
 
-class CommentForm(forms.ModelForm):
+class CommentForm(ModelForm):
     class Meta:
         # 表明这个表单对应的数据库模型是 Comment 类
         model=Comment
