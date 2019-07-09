@@ -62,6 +62,10 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        # ordering 属性用来指定文章排序方式
+        ordering=['-create_time','title']
+
     # 文章标题
     title = models.CharField(max_length=70,verbose_name='文章标题')
 
