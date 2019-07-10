@@ -93,6 +93,8 @@ class Post(models.Model):
     # django.contrib.auth.models 是django内置的应用，专门用于处理网站用户的注册、登录等流程
     author = models.ForeignKey(User, on_delete=models.CASCADE,verbose_name='作者')
 
+    views=models.PositiveIntegerField(default=0,verbose_name='浏览量')
+
     def get_absolute_url(self):
         """
         生成文章的url，pk是文章的主键Id
@@ -101,5 +103,9 @@ class Post(models.Model):
         # blog应用下name=detail的视图函数
         # url反向解析 找到urls.py中name='detail'的路径
         return reverse('blog:detail',kwargs={'pk':self.pk})
+
+    def increase_views(self):
+        self.views+=1
+        self.save(update_fields=['views'])
 
 

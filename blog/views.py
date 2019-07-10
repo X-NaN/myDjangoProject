@@ -31,6 +31,10 @@ def detail(request, pk):
     """
     # 获取文章
     post = get_object_or_404(Post, pk=pk)
+
+    # 浏览量+1
+    post.increase_views()
+
     # 把 Markdown 文本转为 HTML 文本再传递给模板
     post.body = markdown.markdown(post.body, extensions=[
         'extra',
