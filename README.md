@@ -1,11 +1,11 @@
-#myDjangoProject
+# myDjangoProject
 ***
-##python+django搭建web项目
+## python+django搭建web项目
 
 以下都是跟着Django教程：https://www.zmrenwu.com/courses/django-blog-tutorial/
 在此记录一下。
 
-一、开发环境：
+###  一、开发环境：
 win10+pycharm+虚拟环境
 
 1. 创建虚拟环境：
@@ -17,7 +17,7 @@ pip install django
 3. 安装mysql数据库驱动
 pip install mysqlclient
 
-二、创建django项目
+###  二、创建django项目
 1. 创建django项目
 >方法一：通过django命令
 
@@ -34,6 +34,9 @@ django-admin startproject blogproject
     1) 运行django项目
 
         * 方法一：django命令
+            
+            PyCharm终端里执行 
+            
             python manage.py runserver
         * 方法二：Pycharm点击绿色三角按钮运行
     2) 浏览器打开：http://127.0.0.1:8000/

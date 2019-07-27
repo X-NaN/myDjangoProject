@@ -7,7 +7,6 @@
 # @Software : PyCharm
 # @Description :url和对应的视图函数，开发流程：首先配置 URL，即把相关的 URL 和视图函数绑定在一起，然后实现视图函数，编写模板并让视图函数渲染模板。
 
-from django.conf.urls import url
 # 从当前目录下导入 views 模块
 from django.urls import path
 
