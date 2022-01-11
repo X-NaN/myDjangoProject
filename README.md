@@ -4,6 +4,8 @@
 
 以下都是跟着Django教程：https://www.zmrenwu.com/courses/django-blog-tutorial/
 在此记录一下。
+Django博客教程第二版：
+https://www.zmrenwu.com/courses/hellodjango-blog-tutorial/
 
 ###  一、开发环境：
 win10+pycharm+虚拟环境
